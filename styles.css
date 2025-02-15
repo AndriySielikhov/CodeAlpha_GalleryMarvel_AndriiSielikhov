@@ -1,0 +1,346 @@
+/* Загальні стилі */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bebas Neue', sans-serif;
+    background-image: url(/images/fon.jpg); /* Фото на фон */
+    background-size: cover; /* Покриває весь екран */
+    background-position: center; /* Центрує фото на фоні */
+    background-attachment: fixed; /* Фон не прокручується при скролінгу */
+    color: #fff; /* Білий текст */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden; /* Приховати горизонтальне прокручування */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgba(26, 26, 26, 0.418); /* Чорний фон з прозорістю */
+  align-items: center; /* Центруємо вертикально */
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f0f0f0;
+  flex-grow: 1; /* Залишаємо місце для центрування кнопок */
+  text-align: center; /* Логотип залишаємо зліва */
+}
+
+nav {
+  flex-grow: 2; /* Витягування контейнера для кнопок */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Центруємо кнопки */
+  gap: 40px;
+}
+
+nav a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center; /* Центрування іконки та тексту по вертикалі */
+}
+
+nav a i {
+  margin-right: 8px; /* Відступ між іконкою та текстом */
+}
+
+nav a:hover {
+  color: #00f5d4; /* Колір при наведенні */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Основний контент */
+main {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+}
+
+
+
+
+/* ліва */
+
+
+/* Загальний стиль для всіх контейнерів з зображеннями */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px; /* Відступ між зображеннями */
+}
+
+/* Стиль для зображень */
+.hero-thumb {
+  width: 250px;
+  height: 150px; /* Висота зображення */
+  object-fit: cover;
+  border-radius: 10px;
+  filter: brightness(0.4); /* Темний ефект для зображення */
+  transition: all 0.3s ease;
+}
+
+/* Псевдоелемент для градієнта */
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  transition: background 0.3s ease;
+  border-radius: 10px;
+}
+
+/* Початковий темний стан */
+.image-container:hover .hero-thumb {
+  filter: brightness(1.1); /* Яскравість зображення при наведенні */
+}
+
+/* Підсвітка для кожного героя */
+.hero1-images:hover .gradient-overlay {
+  background: linear-gradient(to top, rgba(0, 255, 0, 0.63), rgba(0, 0, 0, 0)); /* Зелена підсвітка для героя 1 */
+}
+
+.hero2-images:hover .gradient-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 255, 0.7), rgba(0, 0, 0, 0)); /* Синя підсвітка для героя 2 */
+}
+
+.hero3-images:hover .gradient-overlay {
+  background: linear-gradient(to top, rgba(255, 165, 0, 0.7), rgba(0, 0, 0, 0)); /* Оранжева підсвітка для героя 3 */
+}
+
+.hero4-images:hover .gradient-overlay {
+  background: linear-gradient(to top, rgba(255, 255, 0, 0.7), rgba(0, 0, 0, 0)); /* Жовта підсвітка для героя 4 */
+}
+
+/* Додаткові стилі для прихованих елементів */
+.hidden {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Центральний блок (герой та опис) */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.hero {
+  display: flex;
+  justify-content: flex-start; /* Вирівнювання по лівому краю */
+  align-items: center;
+  max-width: 300%;
+  width: 135%;
+  padding: 30px;
+}
+
+.hero-text {
+  max-width: 50%;
+  margin-right: 10px; /* Відступ праворуч, щоб текст не стикнувся з картинкою */
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 35px;/* Відступ між абзацами */
+  color: #f0f0f0; /* Колір тексту */
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px; /* Менший відступ між заголовком та текстом */
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+.hero img {
+  height: 420px; /* Зменшена висота зображення */
+  object-fit: contain;
+  margin-left: 20px;
+}
+
+
+/* Стиль для центрального блоку та тексту героя */
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px; /* Відступ під заголовком */
+}
+
+/* Лінія під заголовком */
+.hero-name-underline {
+  width: 100%; /* Лінія на всю ширину */
+  height: 4px; /* Висота лінії */
+  transition: background-color 0.3s ease; /* Плавний перехід кольору */
+}
+
+/* Кольорові лінії для кожного героя */
+.hero1 .hero-name-underline {
+  background-color: rgba(0, 255, 0, 0.8); /* Зелена лінія для Rocket Raccoon */
+}
+
+.hero2 .hero-name-underline {
+  background-color: rgba(0, 0, 255, 0.8); /* Синя лінія для Doctor Strange */
+}
+
+.hero3 .hero-name-underline {
+  background-color: rgba(255, 165, 0, 0.8); /* Оранжева лінія для Black Panther */
+}
+
+.hero4 .hero-name-underline {
+  background-color: rgba(255, 255, 0, 0.8); /* Жовта лінія для Iron Man */
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Права панель */
+.right-panel {
+  width: 4%;
+  padding: 0;
+}
+
+/* Список героїв */
+#heroes-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+/* Елементи списку */
+.hero-item {
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  padding: 30px;
+  transition: background-color 0.3s ease, border-color 0.3s ease, text-shadow 0.3s ease;
+  writing-mode: vertical-rl; /* Текст вертикальний */
+  text-align: center; /* Вирівнювання тексту по центру */
+  transform: rotate(180deg); /* Переворот тексту */
+  margin-bottom: 1px; /* Збільшений відступ між елементами */
+  border: 3px solid transparent; /* Прозора рамка, щоб ефект працював */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Легкий сірий контур для тексту */
+}
+
+
+/* Зелена підсвітка для Rocket Raccoon */
+.hero1.active {
+  background-color: rgba(0, 255, 0, 0.2); /* Світло-зелена підсвітка */
+  border-color: rgba(0, 255, 0, 0.8);
+}
+
+/* Синя підсвітка для Doctor Strange */
+.hero2.active {
+  background-color: rgba(0, 0, 255, 0.2); /* Світло-синя підсвітка */
+  border-color: rgba(0, 0, 255, 0.8);
+}
+
+/* Оранжева підсвітка для Black Panther */
+.hero3.active {
+  background-color: rgba(255, 165, 0, 0.2); /* Світло-оранжева підсвітка */
+  border-color: rgba(255, 165, 0, 0.8);
+}
+
+/* Жовта підсвітка для Iron Man */
+.hero4.active {
+  background-color: rgba(255, 255, 0, 0.2); /* Світло-жовта підсвітка */
+  border-color: rgba(255, 255, 0, 0.8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .left-panel, .hero-content, .right-panel {
+        width: 100%;
+    }
+
+    #hero-main-image {
+        width: 90%;
+    }
+}
