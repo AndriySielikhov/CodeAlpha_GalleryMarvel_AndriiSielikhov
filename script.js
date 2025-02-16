@@ -101,6 +101,65 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+
+    // Оголошення змінних для модального вікна та кнопок
+    const modal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const closeModal = document.getElementById('close-modal');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+
+    let currentHeroImages = []; // Массив для зображень поточного героя
+    let currentImageIndex = 0; // Індекс поточного зображення
+
+    // Функція для відкриття модального вікна
+    function openModal(heroImages, index) {
+        currentHeroImages = heroImages;
+        currentImageIndex = index;
+        modalImage.src = currentHeroImages[currentImageIndex].src;
+        modal.style.display = 'block';
+    }
+
+    // Функція для закриття модального вікна
+    function closeModalWindow() {
+        modal.style.display = 'none';
+    }
+
+    // Функції для перелистування зображень
+    function showPrevImage() {
+        currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : currentHeroImages.length - 1;
+        modalImage.src = currentHeroImages[currentImageIndex].src;
+    }
+
+    function showNextImage() {
+        currentImageIndex = (currentImageIndex < currentHeroImages.length - 1) ? currentImageIndex + 1 : 0;
+        modalImage.src = currentHeroImages[currentImageIndex].src;
+    }
+
+    // Додавання слухачів подій для кожного зображення
+    const imageContainers = document.querySelectorAll('.image-container');
+    imageContainers.forEach(container => {
+        container.addEventListener('click', function () {
+            const heroImages = Array.from(container.parentElement.getElementsByClassName(container.classList[0]));
+            const index = heroImages.indexOf(container);
+            openModal(heroImages, index);
+        });
+    });
+
+    // Кнопки навігації
+    prevButton.addEventListener('click', showPrevImage);
+    nextButton.addEventListener('click', showNextImage);
+
+    // Закрити модальне вікно при натисканні на хрестик
+    closeModal.addEventListener('click', closeModalWindow);
+
+    // Закрити модальне вікно при натисканні за межами зображення
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            closeModalWindow();
+        }
+    });
+
       
 });
 
