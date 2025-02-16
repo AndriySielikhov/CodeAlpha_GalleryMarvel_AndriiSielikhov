@@ -1,4 +1,42 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    const continueButton = document.getElementById('continue-button');
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const mainContent = document.getElementById('main-content');
+
+    
+    const sections = {
+        home: document.getElementById('home-section'),
+        heroes: document.getElementById('heroes-section'),
+        contacts: document.getElementById('contacts-section')
+    };
+
+    // Перехід з welcome screen до main
+    continueButton.addEventListener('click', function () {
+        welcomeScreen.style.display = 'none';
+        mainContent.style.display = 'block';
+    });
+
+    // Додаємо обробники для меню
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault(); // Відміняємо перехід за посиланням
+
+            // Отримуємо секцію з data-атрибуту
+            const sectionName = this.getAttribute('href').replace('#', '');
+
+            // Ховаємо всі секції
+            Object.values(sections).forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Показуємо вибрану секцію
+            if (sections[sectionName]) {
+                sections[sectionName].style.display = 'block';
+            }
+        });
+    });
+    
+    // Перша частина - герої
     const heroItems = document.querySelectorAll('.hero-item'); // Елементи списку героїв
     const heroes = document.querySelectorAll('.hero'); // Всі герої (контейнери)
 
@@ -39,32 +77,35 @@ document.addEventListener('DOMContentLoaded', function() {
             showHeroImages(heroId);
         });
     });
+
+    // Додаємо другий блок: активізація героїв при натисканні на кнопки
+    const heroNameElement = document.getElementById('hero-name');
+    const heroNameUnderline = document.querySelector('.hero-name-underline');
+
+    // Отримуємо усі кнопки на правій панелі
+    heroItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Видаляємо клас active з усіх кнопок і заголовків
+            heroItems.forEach(button => button.classList.remove('active'));
+            document.querySelectorAll('.hero1, .hero2, .hero3, .hero4').forEach(hero => hero.classList.remove('active'));
+
+            // Додаємо клас active для поточної кнопки
+            item.classList.add('active');
+
+            // Змінюємо назву і кольорову підсвітку на основі натиснутого героя
+            const heroType = item.getAttribute('data-hero');
+            heroNameElement.textContent = item.textContent;
+
+            // Оновлюємо кольорову підсвітку
+            document.querySelector(`.${heroType}`).classList.add('active');
+        });
+    });
+
+      
 });
 
-  
 
-// Отримуємо усі кнопки на правій панелі
-const heroItems = document.querySelectorAll('.hero-item');
-const heroNameElement = document.getElementById('hero-name');
-const heroNameUnderline = document.querySelector('.hero-name-underline');
 
-// Отримуємо всі елементи з класом "hero-item" і додаємо подію
-heroItems.forEach(item => {
-  item.addEventListener('click', function() {
-    // Видаляємо клас active з усіх кнопок і заголовків
-    heroItems.forEach(button => button.classList.remove('active'));
-    document.querySelectorAll('.hero1, .hero2, .hero3, .hero4').forEach(hero => hero.classList.remove('active'));
-    
-    // Додаємо клас active для поточної кнопки
-    item.classList.add('active');
-    
-    // Змінюємо назву і кольорову підсвітку на основі натиснутого героя
-    const heroType = item.getAttribute('data-hero');
-    heroNameElement.textContent = item.textContent;
 
-    // Оновлюємо кольорову підсвітку
-    document.querySelector(`.${heroType}`).classList.add('active');
-  });
-});
 
 
