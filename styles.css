@@ -398,7 +398,21 @@ main {
 
 
 
+/* Зміна стилю scroll bar */
+::-webkit-scrollbar {
+  width: 12px; /* ширина смужки */
+}
 
+::-webkit-scrollbar-thumb {
+  background-color: #00f5d4; /* колір смужки */
+  border-radius: 10px; /* закруглені краї */
+  border: 3px solid #000000; /* кордони навколо смужки */
+}
+
+::-webkit-scrollbar-track {
+  background: #000000; /* фон для доріжки смужки */
+  border-radius: 10px;
+}
 
 
 
