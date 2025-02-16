@@ -3,17 +3,58 @@ document.addEventListener('DOMContentLoaded', function () {
     const welcomeScreen = document.getElementById('welcome-screen');
     const mainContent = document.getElementById('main-content');
 
-    
+
+    const homeLink = document.querySelector('nav a i.fa-home').parentElement;
+    const heroesLink = document.querySelector('nav a i.fa-users').parentElement;
+
+    // Функція для переходу до main content (герої)
+    function showMainContent() {
+        welcomeScreen.style.display = 'none';
+        mainContent.style.display = 'block';
+    }
+
+    // Функція для повернення на welcome screen
+    function showWelcomeScreen() {
+        welcomeScreen.style.display = 'flex';
+        mainContent.style.display = 'none';
+    }
+
+    // Перехід з welcome screen до main content
+    continueButton.addEventListener('click', showMainContent);
+
+    // Перехід до героїв через хедер
+    heroesLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        showMainContent();
+    });
+
+    // Перехід на welcome screen через "Home"
+    homeLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        showWelcomeScreen();
+    });
+
+    // Додаємо обробники для решти меню (секції)
     const sections = {
         home: document.getElementById('home-section'),
         heroes: document.getElementById('heroes-section'),
         contacts: document.getElementById('contacts-section')
     };
 
-    // Перехід з welcome screen до main
-    continueButton.addEventListener('click', function () {
-        welcomeScreen.style.display = 'none';
-        mainContent.style.display = 'block';
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const sectionName = this.getAttribute('href').replace('#', '');
+
+            Object.values(sections).forEach(section => {
+                if (section) section.style.display = 'none';
+            });
+
+            if (sections[sectionName]) {
+                sections[sectionName].style.display = 'block';
+            }
+        });
     });
 
     // Додаємо обробники для меню
@@ -101,68 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-
-    // Оголошення змінних для модального вікна та кнопок
-    const modal = document.getElementById('image-modal');
-    const modalImage = document.getElementById('modal-image');
-    const closeModal = document.getElementById('close-modal');
-    const prevButton = document.getElementById('prev-button');
-    const nextButton = document.getElementById('next-button');
-
-    let currentHeroImages = []; // Массив для зображень поточного героя
-    let currentImageIndex = 0; // Індекс поточного зображення
-
-    // Функція для відкриття модального вікна
-    function openModal(heroImages, index) {
-        currentHeroImages = heroImages;
-        currentImageIndex = index;
-        modalImage.src = currentHeroImages[currentImageIndex].src;
-        modal.style.display = 'block';
-    }
-
-    // Функція для закриття модального вікна
-    function closeModalWindow() {
-        modal.style.display = 'none';
-    }
-
-    // Функції для перелистування зображень
-    function showPrevImage() {
-        currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : currentHeroImages.length - 1;
-        modalImage.src = currentHeroImages[currentImageIndex].src;
-    }
-
-    function showNextImage() {
-        currentImageIndex = (currentImageIndex < currentHeroImages.length - 1) ? currentImageIndex + 1 : 0;
-        modalImage.src = currentHeroImages[currentImageIndex].src;
-    }
-
-    // Додавання слухачів подій для кожного зображення
-    const imageContainers = document.querySelectorAll('.image-container');
-    imageContainers.forEach(container => {
-        container.addEventListener('click', function () {
-            const heroImages = Array.from(container.parentElement.getElementsByClassName(container.classList[0]));
-            const index = heroImages.indexOf(container);
-            openModal(heroImages, index);
-        });
-    });
-
-    // Кнопки навігації
-    prevButton.addEventListener('click', showPrevImage);
-    nextButton.addEventListener('click', showNextImage);
-
-    // Закрити модальне вікно при натисканні на хрестик
-    closeModal.addEventListener('click', closeModalWindow);
-
-    // Закрити модальне вікно при натисканні за межами зображення
-    window.addEventListener('click', function (event) {
-        if (event.target === modal) {
-            closeModalWindow();
-        }
-    });
-
-      
 });
-
 
 
 
