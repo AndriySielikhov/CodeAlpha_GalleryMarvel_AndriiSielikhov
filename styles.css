@@ -36,15 +36,28 @@ header .logo {
   text-align: center; /* Логотип залишаємо зліва */
 }
 
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00f5d4; /* Колір тексту */
+}
+
+.logo svg {
+  margin-right: 25px; /* Відстань між лого і текстом */
+}
+
+
 nav {
-  flex-grow: 2; /* Витягування контейнера для кнопок */
+  flex-grow: 4; /* Витягування контейнера для кнопок */
 }
 
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center; /* Центруємо кнопки */
-  gap: 40px;
+  gap: 50px;
 }
 
 nav a {
