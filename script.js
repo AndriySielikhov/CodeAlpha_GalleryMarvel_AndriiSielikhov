@@ -143,8 +143,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
-
-
-
-
-
