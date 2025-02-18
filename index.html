@@ -3,51 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marvel Heroes</title>
+    <title>Marvel Gallery</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-</head>
-</head>
-</head>
+
 <body>
     <header>
         <div class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50">
-              <!-- Круг -->
-              <circle cx="50" cy="50" r="45" fill="none" stroke="#00f5d4" stroke-width="5"/>
+                <!-- Круг -->
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#00f5d4" stroke-width="5"/>
           
-              <!-- Павук (головка та брюшко) -->
-              <circle cx="50" cy="40" r="8" fill="#00f5d4" /> <!-- Головка -->
-              <ellipse cx="50" cy="60" rx="15" ry="10" fill="#00f5d4" /> <!-- Брюшко -->
-          
-              <!-- Лапки -->
-              <line x1="50" y1="40" x2="30" y2="25" stroke="#00f5d4" stroke-width="4"/>
-              <line x1="50" y1="40" x2="70" y2="25" stroke="#00f5d4" stroke-width="4"/>
-              <line x1="50" y1="40" x2="20" y2="45" stroke="#00f5d4" stroke-width="4"/>
-              <line x1="50" y1="40" x2="80" y2="45" stroke="#00f5d4" stroke-width="4"/>
-              <line x1="50" y1="40" x2="25" y2="60" stroke="#00f5d4" stroke-width="4"/>
-              <line x1="50" y1="40" x2="75" y2="60" stroke="#00f5d4" stroke-width="4"/>
-              <line x1="50" y1="40" x2="35" y2="70" stroke="#00f5d4" stroke-width="4"/>
-              <line x1="50" y1="40" x2="65" y2="70" stroke="#00f5d4" stroke-width="4"/>
+                <!-- Павук (головка та брюшко) -->
+                <circle cx="50" cy="40" r="8" fill="#00f5d4" /> <!-- Головка -->
+                <ellipse cx="50" cy="60" rx="15" ry="10" fill="#00f5d4" /> <!-- Брюшко -->
+            
+                <!-- Лапки -->
+                <line x1="50" y1="40" x2="30" y2="25" stroke="#00f5d4" stroke-width="4"/>
+                <line x1="50" y1="40" x2="70" y2="25" stroke="#00f5d4" stroke-width="4"/>
+                <line x1="50" y1="40" x2="20" y2="45" stroke="#00f5d4" stroke-width="4"/>
+                <line x1="50" y1="40" x2="80" y2="45" stroke="#00f5d4" stroke-width="4"/>
+                <line x1="50" y1="40" x2="25" y2="60" stroke="#00f5d4" stroke-width="4"/>
+                <line x1="50" y1="40" x2="75" y2="60" stroke="#00f5d4" stroke-width="4"/>
+                <line x1="50" y1="40" x2="35" y2="70" stroke="#00f5d4" stroke-width="4"/>
+                <line x1="50" y1="40" x2="65" y2="70" stroke="#00f5d4" stroke-width="4"/>
             </svg>
             <span>Marvel Gallery</span>
-          </div>
+        </div>
           
         <nav>
             <ul>
-                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#"><i class="fas fa-users"></i> Heroes</a></li>
-                <li><a href="#"><i class="fas fa-envelope"></i> Contacts</a></li>
+                <li><a href="#" class="nav-link" data-section="home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#" class="nav-link" data-section="heroes"><i class="fas fa-users"></i> Heroes</a></li>
+                <li><a href="#" class="nav-link" data-section="gallery"><i class="fas fa-image"></i> Gallery</a></li>
+                <li><a href="#" class="nav-link" data-section="contacts"><i class="fas fa-envelope"></i> Contacts</a></li>
             </ul>
         </nav>
+        
     </header>
 
 
     <div id="welcome-screen">
-        <h1>Welcome to the Marvel Gallery!</h1>
+        <h1 id="welcome-title">
+            <span class="letter">W</span>
+            <span class="letter">e</span>
+            <span class="letter">l</span>
+            <span class="letter">c</span>
+            <span class="letter">o</span>
+            <span class="letter">m</span>
+            <span class="letter">e</span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter">t</span>
+            <span class="letter">o</span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter">t</span>
+            <span class="letter">h</span>
+            <span class="letter">e</span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter">M</span>
+            <span class="letter">a</span>
+            <span class="letter">r</span>
+            <span class="letter">v</span>
+            <span class="letter">e</span>
+            <span class="letter">l</span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter">G</span>
+            <span class="letter">a</span>
+            <span class="letter">l</span>
+            <span class="letter">l</span>
+            <span class="letter">e</span>
+            <span class="letter">r</span>
+            <span class="letter">y</span>
+            <span class="letter">!</span>
+        </h1>
         <p>Discover the greatest heroes of the Marvel Universe.<br>
             Click on a character to learn more!
         </p>
@@ -218,6 +257,84 @@
             </aside>
         </main>
     </div>
+
+    <div id="gallery-content" class="hidden">
+        <h1>Gallery</h1>
+        <p>Here will be the gallery of images.</p>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div id="contacts-content" class="hidden">
+        <div class="contact-container">
+            <div class="contact-column left-column">
+                <h2>Follow Me</h2>
+                <div class="social-media-container">
+                    <div class="social-media-column">
+                        <p><a href="https://github.com/yourusername" target="_blank" class="social-link"><i class="fab fa-github"></i> GitHub</a></p>
+                        <p><a href="https://www.twitch.tv/yourusername" target="_blank" class="social-link"><i class="fab fa-twitch"></i> Twitch</a></p>
+                        <p><a href="https://www.youtube.com/c/yourchannel" target="_blank" class="social-link"><i class="fab fa-youtube"></i> YouTube</a></p>
+                        <p><a href="https://www.tiktok.com/@yourusername" target="_blank" class="social-link"><i class="fab fa-tiktok"></i> TikTok</a></p>
+                    </div>
+                    <div class="social-media-column">
+                        <p><a href="https://t.me/yourusername" target="_blank" class="social-link"><i class="fab fa-telegram"></i> Telegram</a></p>
+                        <p><a href="https://www.instagram.com/yourusername" target="_blank" class="social-link"><i class="fab fa-instagram"></i> Instagram</a></p>
+                        <p><a href="https://twitter.com/yourusername" target="_blank" class="social-link"><i class="fab fa-twitter"></i> Twitter</a></p>
+                        <p><a href="https://www.linkedin.com/in/yourusername" target="_blank" class="social-link"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+                    </div>
+                </div>
+                <h2>Scan Me!</h2>
+                <img src="./images/qr-code.png" alt="QR Code" class="qr-image">
+            </div>
+            <div class="contact-column right-column">
+                <h2>Contact Information</h2>
+                <p><a href="tel:+123456789" class="contact-link"><i class="fas fa-phone"></i> Phone: +123456789</a></p>
+                <p><a href="mailto:example@example.com" class="contact-link"><i class="fas fa-envelope"></i> Email: example@example.com</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Location: City Kyiv, Ukraine</p>
+                <!-- Вставка інтерактивної карти Google -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253993.99999999997!2d30.516083!3d50.4501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472c5b5c5b5b5b5b%3A0x5b5b5b5b5b5b5b5!2sKyiv%2C%20Ukraine!5e0!3m2!1sen!2sus!4v1616161616161!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+        <div class="contact-form">
+            <h2>Contact Me</h2>
+            <img src="./images/profile.jpeg" alt="Your Photo" class="profile-photo">
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit" class="submit-button">Send</button>
+                <button type="button" class="reset-button" onclick="resetForm()">Reset</button>
+            </form>
+        </div>
+
+    </div>
+
+
+    
+
+    
 
     
 

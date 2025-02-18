@@ -2,21 +2,44 @@ document.addEventListener('DOMContentLoaded', function () {
     const continueButton = document.getElementById('continue-button');
     const welcomeScreen = document.getElementById('welcome-screen');
     const mainContent = document.getElementById('main-content');
+    const galleryContent = document.getElementById('gallery-content');
+    const contactsContent = document.getElementById('contacts-content');
 
-
-    const homeLink = document.querySelector('nav a i.fa-home').parentElement;
-    const heroesLink = document.querySelector('nav a i.fa-users').parentElement;
+    const homeLink = document.querySelector('nav a[data-section="home"]');
+    const heroesLink = document.querySelector('nav a[data-section="heroes"]');
+    const galleryLink = document.querySelector('nav a[data-section="gallery"]');
+    const contactsLink = document.querySelector('nav a[data-section="contacts"]');
 
     // Функція для переходу до main content (герої)
     function showMainContent() {
         welcomeScreen.style.display = 'none';
         mainContent.style.display = 'block';
+        galleryContent.style.display = 'none';
+        contactsContent.style.display = 'none';
     }
 
     // Функція для повернення на welcome screen
     function showWelcomeScreen() {
         welcomeScreen.style.display = 'flex';
         mainContent.style.display = 'none';
+        galleryContent.style.display = 'none';
+        contactsContent.style.display = 'none';
+    }
+
+    // Функція для показу галереї
+    function showGallery() {
+        welcomeScreen.style.display = 'none';
+        mainContent.style.display = 'none';
+        galleryContent.style.display = 'block';
+        contactsContent.style.display = 'none';
+    }
+
+    // Функція для показу контактів
+    function showContacts() {
+        welcomeScreen.style.display = 'none';
+        mainContent.style.display = 'none';
+        galleryContent.style.display = 'none';
+        contactsContent.style.display = 'block';
     }
 
     // Перехід з welcome screen до main content
@@ -34,49 +57,44 @@ document.addEventListener('DOMContentLoaded', function () {
         showWelcomeScreen();
     });
 
-    // Додаємо обробники для решти меню (секції)
-    const sections = {
-        home: document.getElementById('home-section'),
-        heroes: document.getElementById('heroes-section'),
-        contacts: document.getElementById('contacts-section')
-    };
-
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-
-            const sectionName = this.getAttribute('href').replace('#', '');
-
-            Object.values(sections).forEach(section => {
-                if (section) section.style.display = 'none';
-            });
-
-            if (sections[sectionName]) {
-                sections[sectionName].style.display = 'block';
-            }
-        });
+    // Перехід до галереї
+    galleryLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        showGallery();
     });
 
-    // Додаємо обробники для меню
+    // Перехід до контактів
+    contactsLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        showContacts();
+    });
+
+    // Заміна двох обробників на один
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault(); // Відміняємо перехід за посиланням
 
-            // Отримуємо секцію з data-атрибуту
-            const sectionName = this.getAttribute('href').replace('#', '');
+            const sectionName = this.getAttribute('data-section');
 
             // Ховаємо всі секції
-            Object.values(sections).forEach(section => {
-                section.style.display = 'none';
-            });
+            welcomeScreen.style.display = 'none';
+            mainContent.style.display = 'none';
+            galleryContent.style.display = 'none';
+            contactsContent.style.display = 'none';
 
             // Показуємо вибрану секцію
-            if (sections[sectionName]) {
-                sections[sectionName].style.display = 'block';
+            if (sectionName === 'home') {
+                showWelcomeScreen();
+            } else if (sectionName === 'heroes') {
+                showMainContent();
+            } else if (sectionName === 'gallery') {
+                showGallery();
+            } else if (sectionName === 'contacts') {
+                showContacts();
             }
         });
     });
-    
+
     // Перша частина - герої
     const heroItems = document.querySelectorAll('.hero-item'); // Елементи списку героїв
     const heroes = document.querySelectorAll('.hero'); // Всі герої (контейнери)
@@ -91,13 +109,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Функція для зміни зображень героя
     function showHeroImages(hero) {
-        // Спочатку приховуємо всі зображення
         Object.keys(heroImages).forEach(heroKey => {
             heroImages[heroKey].forEach(img => img.classList.add('hidden'));
         });
 
-        // Потім показуємо зображення для вибраного героя
-        heroImages[hero].forEach(img => img.classList.remove('hidden'));
+        // Покажемо зображення для вибраного героя
+        if (heroImages[hero]) {
+            heroImages[hero].forEach(img => img.classList.remove('hidden'));
+        }
     }
 
     // Обробник для вибору героя
@@ -141,5 +160,12 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector(`.${heroType}`).classList.add('active');
         });
     });
+
+
+    function resetForm() {
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+    }
 
 });

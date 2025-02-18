@@ -100,12 +100,74 @@ nav a:hover {
 #welcome-screen h1 {
   font-size: 3rem;
   margin-bottom: 20px;
+  color: #00f5d4;
 }
 
 #welcome-screen p {
   font-size: 1.2rem;
   margin-bottom: 40px;
 }
+
+
+
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px); /* Висота підйому */
+  }
+}
+
+.letter {
+  display: inline-block; /* Дозволяє анімацію для кожної літери */
+  animation: bounce 0.5s ease infinite; /* Анімація */
+}
+
+/* Затримка анімації для кожної літери */
+.letter:nth-child(1) { animation-delay: 0s; }
+.letter:nth-child(2) { animation-delay: 0.1s; }
+.letter:nth-child(3) { animation-delay: 0.2s; }
+.letter:nth-child(4) { animation-delay: 0.3s; }
+.letter:nth-child(5) { animation-delay: 0.4s; }
+.letter:nth-child(6) { animation-delay: 0.5s; }
+.letter:nth-child(7) { animation-delay: 0.6s; }
+.letter:nth-child(8) { animation-delay: 0.7s; }
+.letter:nth-child(9) { animation-delay: 0.8s; }
+.letter:nth-child(10) { animation-delay: 0.9s; }
+.letter:nth-child(11) { animation-delay: 1s; }
+.letter:nth-child(12) { animation-delay: 1.1s; }
+.letter:nth-child(13) { animation-delay: 1.2s; }
+.letter:nth-child(14) { animation-delay: 1.3s; }
+.letter:nth-child(15) { animation-delay: 1.4s; }
+.letter:nth-child(16) { animation-delay: 1.5s; }
+.letter:nth-child(17) { animation-delay: 1.6s; }
+.letter:nth-child(18) { animation-delay: 1.7s; }
+.letter:nth-child(19) { animation-delay: 1.8s; }
+.letter:nth-child(20) { animation-delay: 1.9s; }
+.letter:nth-child(21) { animation-delay: 2s; }
+.letter:nth-child(22) { animation-delay: 2.1s; }
+.letter:nth-child(23) { animation-delay: 2.2s; }
+.letter:nth-child(24) { animation-delay: 1.3s; }
+.letter:nth-child(25) { animation-delay: 1.4s; }
+.letter:nth-child(26) { animation-delay: 1.5s; }
+.letter:nth-child(27) { animation-delay: 1.6s; }
+.letter:nth-child(28) { animation-delay: 1.7s; }
+.letter:nth-child(29) { animation-delay: 1.8s; }
+.letter:nth-child(30) { animation-delay: 1.9s; }
+.letter:nth-child(31) { animation-delay: 2s; }
+.letter:nth-child(33) { animation-delay: 2.2s; }
+.letter:nth-child(34) { animation-delay: 1.3s; }
+.letter:nth-child(35) { animation-delay: 1.4s; }
+.letter:nth-child(36) { animation-delay: 1.5s; }
+.letter:nth-child(37) { animation-delay: 1.6s; }
+
+
+
+
+
+
 
 #continue-button {
   position: relative;
@@ -250,8 +312,6 @@ main {
 
 
 
-
-
 /* Центральний блок (герой та опис) */
 .hero-content {
   display: flex;
@@ -343,9 +403,6 @@ main {
 
 
 
-
-
-
 /* Права панель */
 .right-panel {
   width: 4%;
@@ -405,6 +462,182 @@ main {
 
 
 
+
+
+
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.contact-column {
+  flex: 1; /* Займає всю доступну ширину */
+  margin: 0 10px; /* Відстань між стовпчиками */
+  padding: 20px;
+  border: 1px solid #00f5d4;
+  border-radius: 8px;
+  background-color: #000000af;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрує вміст */
+}
+
+.social-media-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Займає всю ширину */
+  margin-bottom: 20px; /* Відстань між соціальними мережами та QR-кодом */
+}
+
+.social-media-column {
+  flex: 1; /* Займає всю доступну ширину */
+  padding: 0 85px; /* Відстань між стовпчиками соціальних мереж */
+}
+
+.social-media-column p {
+  margin: 2px 0; /* Відстань між рядками соціальних мереж */
+}
+
+.social-link {
+  color: white; /* Білий колір тексту за замовчуванням */
+  text-decoration: none; /* Без підкреслення */
+  transition: color 0.3s ease, text-decoration 0.3s ease, transform 0.3s ease; /* Плавний перехід */
+  display: inline-block; /* Додано для того, щоб трансформація працювала */
+}
+
+.social-link:hover {
+  color: #00f5d4; /* Колір тексту при наведенні */
+  text-decoration: underline; /* Підкреслення при наведенні */
+  transform: translateX(5px); /* Зміщення вправо при наведенні */
+}
+
+.social-link i {
+  color: #00f5d4; /* Колір іконок */
+  transition: color 0.3s ease; /* Плавний перехід для іконок */
+}
+
+.social-link:hover i {
+  color: white; /* Зміна кольору іконок при наведенні */
+}
+
+
+
+.qr-image {
+  width: 230px; /* Ширина QR-коду */
+  height: auto;
+  margin-top: 10px; /* Відстань між заголовком "Scan Me!" та QR-кодом */
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Вирівнює текст вліво */
+  gap: 8px;
+}
+
+
+.contact-link {
+  color: white; /* Білий колір тексту за замовчуванням */
+  text-decoration: none; /* Без підкреслення */
+  transition: color 0.3s ease, text-decoration 0.3s ease, transform 0.3s ease; /* Плавний перехід */
+  display: inline-block; /* Додано для того, щоб трансформація працювала */
+}
+
+.contact-link:hover {
+  color: #00f5d4; /* Колір тексту при наведенні */
+  text-decoration: underline; /* Підкреслення при наведенні */
+  transform: translateX(5px); /* Зміщення вправо при наведенні */
+}
+
+.contact-link i {
+  color: #00f5d4; /* Колір іконок за замовчуванням */
+  transition: color 0.3s ease; /* Плавний перехід для іконок */
+}
+
+.contact-link:hover i {
+  color: white; /* Зміна кольору іконок при наведенні */
+}
+
+
+
+
+
+.contact-form {
+  margin: 20px auto; /* Відстань зверху та знизу, автоматичне вирівнювання по центру */
+  padding: 20px;
+  border: 1px solid #00f5d4;
+  border-radius: 8px;
+  background-color: #000000;
+  width: 35%; /* Ширина форми */
+  display: flex; /* Додаємо flex для вирівнювання елементів */
+  flex-direction: column; /* Вирівнюємо елементи вертикально */
+}
+
+.contact-form h2 {
+  color: #00f5d4; /* Колір заголовка */
+  margin-bottom: 20px; /* Відстань між заголовком та формою */
+  text-align: center;
+}
+
+.contact-form label {
+  color: #ffffff; /* Колір тексту міток */
+  margin-top: 15px; /* Збільшена відстань між мітками та полями вводу */
+  margin-bottom: 5px; /* Відстань між міткою та полем вводу */
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%; /* Ширина полів вводу */
+  padding: 7px; /* Внутрішні відступи */
+  margin-top: 7px; /* Відстань між міткою та полем вводу */
+  border: 1px solid #00f5d4; /* Колір рамки */
+  border-radius: 4px; /* Закруглені кути */
+  background-color: #222; /* Колір фону полів вводу */
+  color: #ffffff; /* Колір тексту */
+}
+
+.contact-form button {
+  margin-top: 10px; /* Відстань між кнопками та полями вводу */
+  padding: 10px 15px; /* Внутрішні відступи кнопок */
+  border: none; /* Без рамки */
+  border-radius: 4px; /* Закруглені кути */
+  cursor: pointer; /* Курсор при наведенні */
+  transition: background-color 0.3s ease; /* Плавний перехід для фону */
+}
+
+.submit-button {
+  background-color: #00f5d4; /* Колір фону кнопки "Send" */
+  color: #000; /* Колір тексту кнопки */
+}
+
+.submit-button:hover {
+  background-color: #ffffff; /* Темніший колір при наведенні */
+}
+
+.reset-button {
+  background-color: #00f5d4; /* Колір фону кнопки "Reset" */
+  color: #000000; /* Колір тексту кнопки */
+  margin-left: 10px; /* Відстань між кнопками */
+}
+
+.reset-button:hover {
+  background-color: #ff0202; /* Темніший колір при наведенні */
+}
+
+
+
+.profile-photo {
+  display: block; /* Зробити зображення блочним елементом */
+  margin: 1px auto 2px; /* Відстань зверху, автоматичне вирівнювання по центру, відстань знизу */
+  width: 150px; /* Ширина фотографії */
+  height: auto; /* Автоматична висота для збереження пропорцій */
+  border-radius: 50%; /* Кругла форма */
+}
 
 
 
