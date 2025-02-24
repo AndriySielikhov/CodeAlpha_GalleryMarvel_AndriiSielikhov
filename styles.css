@@ -466,9 +466,6 @@ main {
 
 /* Центруємо галерею на вкладці */
 
-#gallery-content {
-  display: none;
-}
 
 #gallery-content {
   display: flex;
@@ -476,7 +473,7 @@ main {
   align-items: center;
   height: 100vh;
   width: 500vw;
-  padding-top: 50px; /* Відступ зверху */
+  padding-top: 40px; /* Відступ зверху */
 }
 
 .gallery-container {
@@ -507,6 +504,42 @@ main {
 
 
 
+/* Стилі для заголовків героїв */
+.gallery-container h1 {
+  text-align: center; /* Вирівнювання по центру */
+  padding: 10px; /* Внутрішній відступ */
+  border-radius: 10px; /* Закруглені краї */
+  margin-bottom: 15px; /* Відступ від галереї */
+  border: 2px solid; /* Межа для ефекту підсвітки */
+}
+
+/* Зелений для Rocket Raccoon */
+#gallery1 h1 {
+  background-color: rgba(0, 255, 0, 0.2);
+  color: rgb(255, 255, 255);
+  border-color: rgba(0, 255, 0, 0.8);
+}
+
+/* Синій для Doctor Strange */
+#gallery2 h1 {
+  background-color: rgba(0, 0, 255, 0.2);
+  color: rgb(255, 255, 255);
+  border-color: rgba(0, 0, 255, 0.8);
+}
+
+/* Оранжевий для Black Panther */
+#gallery3 h1 {
+  background-color: rgba(255, 165, 0, 0.2);
+  color: rgb(255, 255, 255);
+  border-color: rgba(255, 165, 0, 0.8);
+}
+
+/* Жовтий для Iron Man */
+#gallery4 h1 {
+  background-color: rgba(255, 255, 0, 0.2);
+  color: rgb(255, 255, 255);
+  border-color: rgba(255, 255, 0, 0.8);
+}
 
 
 
@@ -516,9 +549,8 @@ main {
   width: 50%; /* Ширина лінії, можна змінити */
   height: 3px;
   background-color: #00f5d4; /* Колір лінії */
-  margin-top: 40px; /* Відступ зверху */
+  margin: 40px auto; /* Однакові відступи зверху і знизу */
 }
-
 
 
 
@@ -581,11 +613,11 @@ main {
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-family: 'Roboto', sans-serif;
   opacity: 0;
   bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
+  border-radius: 50%;
 }
 
 .gallery-container .box:hover::after {
@@ -667,6 +699,8 @@ main {
   right: 20px; /* Зверху праворуч */
   top: 20px;
 }
+
+
 
 
 
@@ -845,17 +879,17 @@ main {
 }
 
 .reset-button:hover {
-  background-color: #ff0202; /* Темніший колір при наведенні */
+  background-color: #ff0202; 
 }
 
 
 
 .profile-photo {
-  display: block; /* Зробити зображення блочним елементом */
-  margin: 1px auto 2px; /* Відстань зверху, автоматичне вирівнювання по центру, відстань знизу */
-  width: 150px; /* Ширина фотографії */
-  height: auto; /* Автоматична висота для збереження пропорцій */
-  border-radius: 50%; /* Кругла форма */
+  display: block;
+  margin: 1px auto 2px; 
+  width: 150px; 
+  height: auto; 
+  border-radius: 50%; 
 }
 
 
@@ -863,19 +897,19 @@ main {
 
 
 
-/* Зміна стилю scroll bar */
+
 ::-webkit-scrollbar {
-  width: 12px; /* ширина смужки */
+  width: 12px; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #00f5d4; /* колір смужки */
-  border-radius: 10px; /* закруглені краї */
-  border: 3px solid #000000; /* кордони навколо смужки */
+  background-color: #00f5d4; 
+  border-radius: 10px; 
+  border: 3px solid #000000; 
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000; /* фон для доріжки смужки */
+  background: #000000; 
   border-radius: 10px;
 }
 
@@ -890,7 +924,7 @@ main {
   
   
 
-/* Адаптивність */
+
 @media (max-width: 768px) {
     main {
         flex-direction: column;
@@ -904,4 +938,94 @@ main {
     #hero-main-image {
         width: 90%;
     }
+}
+
+
+/* Для дуже малих екранів (телефони) */
+@media (max-width: 480px) {
+  main {
+      flex-direction: column;
+      margin: 20px;
+  }
+
+  .left-panel, .hero-content, .right-panel {
+      width: 100%;
+  }
+
+  nav ul {
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .hero img {
+      height: 250px;
+      margin-left: 0;
+  }
+
+  #continue-button {
+      width: 120px;
+      height: 120px;
+  }
+
+  .gallery-container {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .gallery-container .box {
+      width: 90%;
+      height: 200px;
+  }
+}
+
+/* Для планшетів */
+@media (max-width: 1024px) {
+  main {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+  }
+
+  .hero {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .hero img {
+      height: 350px;
+      margin-left: 0;
+  }
+
+  .right-panel {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+
+  .hero-item {
+      writing-mode: horizontal-tb;
+      transform: rotate(0);
+      padding: 10px 20px;
+  }
+}
+
+/* Для великих екранів */
+@media (min-width: 1440px) {
+  main {
+      margin: 60px;
+  }
+
+  .hero img {
+      height: 500px;
+  }
+
+  .gallery-container {
+      max-width: 1500px;
+      height: 400px;
+  }
+
+  .gallery-container .box {
+      width: 150px;
+  }
 }
