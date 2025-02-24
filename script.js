@@ -10,6 +10,62 @@ document.addEventListener('DOMContentLoaded', function () {
     const galleryLink = document.querySelector('nav a[data-section="gallery"]');
     const contactsLink = document.querySelector('nav a[data-section="contacts"]');
 
+    welcomeScreen.style.display = 'flex';
+    mainContent.style.display = 'none';
+    galleryContent.style.display = 'none';
+    contactsContent.style.display = 'none';
+
+    const galleries = [
+        {
+            id: 'gallery1',
+            images: [
+                './images/hero1/hero1-1.jpg',
+                './images/hero1/hero1-2.jpg',
+                './images/hero1/hero1-3.jpg',
+                './images/hero1/hero1-4.jpg',
+                './images/hero1/hero1-5.jpg',
+                './images/hero1/hero1-6.jpg'
+            ]
+        },
+        {
+            id: 'gallery2',
+            images: [
+                './images/hero2/hero2-1.jpg',
+                './images/hero2/hero2-2.jpg',
+                './images/hero2/hero2-3.jpg',
+                './images/hero2/hero2-4.jpg',
+                './images/hero2/hero2-5.jpg',
+                './images/hero2/hero2-6.jpg'
+            ]
+        },
+        {
+            id: 'gallery3',
+            images: [
+                './images/hero3/hero3-1.jpg',
+                './images/hero3/hero3-2.jpg',
+                './images/hero3/hero3-3.jpg',
+                './images/hero3/hero3-4.jpg',
+                './images/hero3/hero3-5.jpg',
+                './images/hero3/hero3-6.jpg'
+            ]
+        },
+        {
+            id: 'gallery4',
+            images: [
+                './images/hero4/hero4-1.jpg',
+                './images/hero4/hero4-2.jpg',
+                './images/hero4/hero4-3.jpg',
+                './images/hero4/hero4-4.jpg',
+                './images/hero4/hero4-5.jpg',
+                './images/hero4/hero4-6.jpg'
+            ]
+        }
+    ];
+
+
+
+
+
     // Функція для переходу до main content (герої)
     function showMainContent() {
         welcomeScreen.style.display = 'none';
@@ -18,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
         contactsContent.style.display = 'none';
     }
 
-    // Функція для повернення на welcome screen
     function showWelcomeScreen() {
         welcomeScreen.style.display = 'flex';
         mainContent.style.display = 'none';
@@ -26,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
         contactsContent.style.display = 'none';
     }
 
-    // Функція для показу галереї
     function showGallery() {
         welcomeScreen.style.display = 'none';
         mainContent.style.display = 'none';
@@ -166,6 +220,55 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("name").value = "";
         document.getElementById("email").value = "";
         document.getElementById("message").value = "";
+    }
+
+    
+    
+    galleries.forEach(gallery => {
+        const boxes = document.querySelectorAll(`#${gallery.id} .box`);
+        let currentIndex = 0;
+    
+        boxes.forEach((box, index) => {
+            box.addEventListener('click', () => {
+                currentIndex = index;
+                openFullscreen(gallery.images[currentIndex], gallery.images);
+            });
+        });
+    });
+    
+    function openFullscreen(imageUrl, images) {
+        const fullscreenOverlay = document.createElement('div');
+        fullscreenOverlay.id = 'fullscreen-overlay';
+        fullscreenOverlay.innerHTML = `
+            <div id="fullscreen-container">
+                <img src="${imageUrl}" alt="Fullscreen Image">
+                <button id="prev-button">‹</button>
+                <button id="next-button">›</button>
+                <button id="close-button">×</button>
+            </div>
+        `;
+        document.body.appendChild(fullscreenOverlay);
+    
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const closeButton = document.getElementById('close-button');
+        const fullscreenImage = document.querySelector('#fullscreen-container img');
+    
+        let currentIndex = images.indexOf(imageUrl);
+    
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            fullscreenImage.src = images[currentIndex];
+        });
+    
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            fullscreenImage.src = images[currentIndex];
+        });
+    
+        closeButton.addEventListener('click', () => {
+            document.body.removeChild(fullscreenOverlay);
+        });
     }
 
 });
