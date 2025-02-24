@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Bebas Neue', sans-serif;
-    background-image: url(/images/fon.jpg); /* Фото на фон */
+    background-image: url(./images/fon.jpg); /* Фото на фон */
     background-size: cover; /* Покриває весь екран */
     background-position: center; /* Центрує фото на фоні */
     background-attachment: fixed; /* Фон не прокручується при скролінгу */
