@@ -27,4 +27,4 @@ Welcome to **Marvel Gallery** – a website where you can explore your favorite 
 ## 📌 How to Use  
 1. Clone the repository:  
    ```sh
-   git clone https://github.com/AndriySielikhov/galleryMarvel_CodeAlpha.git
+   git clone https://github.com/AndriySielikhov/CodeAlpha_GalleryMarvel_AndriiSielikhov.git
